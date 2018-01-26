@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 const fs = require('fs-extra')
-const { asyncExec } = require('./exec-promisify')
-const { boilerplateGenerated } = require('./boilerplate-code')
+const { asyncExec } = require('./src/utils/exec-promisify')
+const { boilerplateGenerated } = require('./src/utils/boilerplate-code')
 
 
 const strCode = `
