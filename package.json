@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "DEBUG=js-bot:* nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "debug": "^3.1.0",
+    "dotenv": "^4.0.0",
     "fs-extra": "^5.0.0",
     "telegraf": "^3.17.5"
   }
