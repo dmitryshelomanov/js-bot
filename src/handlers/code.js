@@ -7,10 +7,20 @@ async function handlerCode({
 }) {
   debug('run execute code')
 
-  const codeStr = message.text.split('!code')[1]
-  const rs = await createSandbox(codeStr)
-  
-  reply(rs, Extra.inReplyTo(message.message_id))
+  try {
+    const codeStr = message.text.split('!code')[1]
+    const rs = await createSandbox(codeStr)
+    
+    reply(rs, Extra.inReplyTo(message.message_id))
+  }
+  catch(error) {
+    const str = `
+      message: ${error.message}
+    `
+
+    debug('error', error)
+    reply(str, Extra.inReplyTo(message.message_id))
+  }
 }
 
 module.exports = {

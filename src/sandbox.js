@@ -7,11 +7,11 @@ const { boilerplateGenerated } = require('./utils/boilerplate-code')
 
 
 async function createSandbox(strCode) {
-  try {
-    const fileName = `${uid()}.js`
-    const path = resolve(__dirname, '..', 'tmp', fileName)
-    const code = boilerplateGenerated(strCode)
+  const fileName = `${uid()}.js`
+  const path = resolve(__dirname, '..', 'tmp', fileName)
+  const code = boilerplateGenerated(strCode)
 
+  try {
     debug('path - ', path)
     await fs.writeFile(path, code)
     const rs = await asyncExec(`node tmp/${fileName}`)
@@ -20,6 +20,7 @@ async function createSandbox(strCode) {
     return rs
   }
   catch(error) {
+    await fs.unlink(path)
     throw error
   }
 }

@@ -10,5 +10,5 @@ if (process.env.NODE_ENV !== 'production') {
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 bot
-  .hears(new RegExp(/!code\s([^.+$]+)/), handlerCode)
+  .hears(new RegExp(/!code/), handlerCode)
   .startPolling()
