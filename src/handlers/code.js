@@ -17,9 +17,10 @@ async function handlerCode({
     )
   }
   catch(error) {
-    const err = error.message.split('at ')[0]
+    const err = error.killed 
+      ? 'Request is long'
+      : error.message.split('at ')[0]
 
-    debug('error', error)
     replyWithMarkdown(
       `\`${err}\``, 
       Extra.inReplyTo(message.message_id),
