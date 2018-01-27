@@ -9,6 +9,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
+debug('bot started')
+
 bot
   .hears(new RegExp(/!code/), handlerCode)
   .startPolling()

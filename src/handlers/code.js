@@ -3,7 +3,7 @@ const { Extra } = require('telegraf')
 const { createSandbox } = require('../sandbox')
 
 async function handlerCode({ 
-  reply, message,
+  message, replyWithMarkdown,
 }) {
   debug('run execute code')
 
@@ -11,15 +11,19 @@ async function handlerCode({
     const codeStr = message.text.split('!code')[1]
     const rs = await createSandbox(codeStr)
     
-    reply(rs, Extra.inReplyTo(message.message_id))
+    replyWithMarkdown(
+      `\`${rs || 'non result'}\``, 
+      Extra.inReplyTo(message.message_id),
+    )
   }
   catch(error) {
-    const str = `
-      message: ${error.message}
-    `
+    const err = error.message.split('at ')[0]
 
     debug('error', error)
-    reply(str, Extra.inReplyTo(message.message_id))
+    replyWithMarkdown(
+      `\`${err}\``, 
+      Extra.inReplyTo(message.message_id),
+    )
   }
 }
 
