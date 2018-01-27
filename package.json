@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "DEBUG=js-bot:* nodemon index.js"
+    "dev": "DEBUG=js-bot:* nodemon index.js",
+    "start": "node ./node_modules/.bin/pm2 start index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
     "fs-extra": "^5.0.0",
+    "pm2": "^2.9.3",
     "telegraf": "^3.17.5",
     "tree-kill": "^1.2.0"
   }
