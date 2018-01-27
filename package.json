@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "DEBUG=js-bot:* nodemon index.js",
-    "start": "node ./node_modules/.bin/pm2 start index.js"
+    "start": "node ./node_modules/.bin/pm2 start index.js && ./node_modules/.bin/pm2 logs"
   },
   "keywords": [],
   "author": "",
