@@ -1,34 +1,30 @@
 const debug = require('debug')('js-bot:handle-code')
 const { Extra } = require('telegraf')
-const { createSandbox } = require('../sandbox')
+const { commands, error: errorNotify } = require('../../utils/texs')
 
 
-async function handlerCode({
+async function handleCode({
   message, replyWithMarkdown,
 }) {
   debug('run execute code')
 
   try {
     const codeStr = message.text.split('!code')[1]
-    const rs = await createSandbox(codeStr)
+    const rs = null
 
     replyWithMarkdown(
-      `\`${rs || 'non result'}\``,
+      errorNotify.getResult(rs),
       Extra.inReplyTo(message.message_id),
     )
   }
   catch (error) {
-    const err = error.killed
-      ? 'Request is long'
-      : error.message.split('at ')[0]
-
     replyWithMarkdown(
-      '`Oops. It seems there was an error`',
+      errorNotify.handleType(error),
       Extra.inReplyTo(message.message_id),
     )
   }
 }
 
-module.exports = {
-  handlerCode,
+module.exports = (bot) => {
+  bot.hears(commands.code(), handleCode)
 }

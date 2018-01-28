@@ -1,1 +1,1 @@
-module.exports = code => code.replace(/`+/img, '\\`')
+module.exports = (code) => code.replace(/`+/img, '\\`')
