@@ -22,7 +22,7 @@ async function handlerCode({
       : error.message.split('at ')[0]
 
     replyWithMarkdown(
-      `\`${err}\``, 
+      `\`Oops. It seems there was an error\``, 
       Extra.inReplyTo(message.message_id),
     )
   }
