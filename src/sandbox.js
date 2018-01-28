@@ -19,7 +19,7 @@ async function createSandbox(strCode) {
     await fs.unlink(path)
     return rs
   }
-  catch(error) {
+  catch (error) {
     await fs.unlink(path)
     throw error
   }

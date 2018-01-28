@@ -9,7 +9,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 debug('bot started')
 
 bot
-  .hears(new RegExp(/!code/), handlerCode)  
+  .hears(/!code/, handlerCode)
   .command('help', ({ replyWithMarkdown }) => {
     replyWithMarkdown(`
       *js sandbox bot*

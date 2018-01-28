@@ -1,0 +1,6 @@
+{
+  "extends": "atomix-base",
+  "rules": {
+    "prefer-promise-reject-errors": "off"
+  }
+}

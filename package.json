@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "DEBUG=js-bot:* nodemon index.js",
-    "start": "node ./node_modules/.bin/pm2 start index.js && ./node_modules/.bin/pm2 logs"
+    "start": "node ./node_modules/.bin/pm2 start index.js",
+    "test:lint": "eslint .",
+    "prepush": "npm run test:lint",
+    "precommit": "npm run test:lint"
   },
   "keywords": [],
   "author": "",
@@ -14,10 +17,14 @@
     "axios": "^0.17.1",
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
-    "escape-quotes": "^1.0.2",
     "fs-extra": "^5.0.0",
-    "pm2": "^2.9.3",
     "telegraf": "^3.17.5",
     "tree-kill": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-atomix-base": "^5.3.2",
+    "husky": "^0.14.3",
+    "pm2": "^2.9.3"
   }
 }
