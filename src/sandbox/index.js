@@ -2,14 +2,14 @@ const debug = require('debug')('js-bot:sandbox')
 const { resolve } = require('path')
 const fs = require('fs-extra')
 const uid = require('../utils/uid')
-const { asyncExec } = require('../utils/exec-promisify')
-const { boilerplateGenerated } = require('../utils/boilerplate-code')
+const { asyncExec } = require('./exec-promisify')
+const { childProcess } = require('./child-process')
 
 
 async function createSandbox(strCode) {
   const fileName = `${uid()}.js`
   const path = resolve(__dirname, '..', '..', 'tmp', fileName)
-  const code = boilerplateGenerated(strCode)
+  const code = childProcess(strCode)
 
   try {
     debug('path - ', path)
