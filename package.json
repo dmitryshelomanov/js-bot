@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "DEBUG=js-bot:* nodemon index.js",
-    "start": "node ./node_modules/.bin/pm2 start index.js",
+    "server:dev:run": "DEBUG=js-bot:* nodemon src/server.js",
+    "bot:dev:run": "DEBUG=js-bot:* nodemon index.js",
+    "server:prod:run": "node ./node_modules/.bin/pm2 start src/server.js",
+    "bot:prod:run": "node ./node_modules/.bin/pm2 start index.js",
+    "dev": "npm run server:run && npm run bot:run",
+    "start": "npm run server:prod:run && npm run bot:prod:run",
     "test:lint": "eslint .",
     "prepush": "npm run test:lint",
     "precommit": "npm run test:lint"
@@ -20,7 +24,8 @@
     "fs-extra": "^5.0.0",
     "telegraf": "^3.17.5",
     "telegraf-logger": "^2.0.2",
-    "tree-kill": "^1.2.0"
+    "tree-kill": "^1.2.0",
+    "vm2": "^3.5.2"
   },
   "devDependencies": {
     "eslint": "^4.16.0",

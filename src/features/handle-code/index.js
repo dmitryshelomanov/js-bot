@@ -1,6 +1,7 @@
 const debug = require('debug')('js-bot:handle-code')
 const { Extra } = require('telegraf')
-const { commands, error: errorNotify } = require('../../utils/texs')
+const { commands, error: errorNotify } = require('../../utils/text')
+const { createSandbox } = require('../../sandbox')
 
 
 async function handleCode({
@@ -10,7 +11,7 @@ async function handleCode({
 
   try {
     const codeStr = message.text.split('!code')[1]
-    const rs = null
+    const rs = await createSandbox(codeStr)
 
     replyWithMarkdown(
       errorNotify.getResult(rs),
