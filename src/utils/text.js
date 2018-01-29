@@ -1,6 +1,7 @@
 module.exports = {
   commands: {
     code: () => /!code/,
+    help: () => '!help',
   },
   error: {
     timeOut: () => 'Request is long 😤',
