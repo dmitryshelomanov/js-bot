@@ -1,5 +1,5 @@
 const { Extra } = require('telegraf')
-const { commands } = require('../../utils/text')
+const { commands } = require('../utils/text')
 
 
 async function handleCode({
@@ -22,5 +22,5 @@ async function handleCode({
 }
 
 module.exports = (bot) => {
-  bot.commands(commands.help(), handleCode)
+  bot.command(commands.help(), handleCode)
 }
