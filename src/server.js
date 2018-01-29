@@ -17,7 +17,7 @@ server.on('connection', (socket) => {
       if (data.channel === 'connection') {
         pong++
       }
-      if (pong > 1) {
+      if (pong > 10) {
         socket
           .write(JSON.stringify({ channel: 'abort' }))
       }
