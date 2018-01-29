@@ -3,9 +3,9 @@ module.exports = {
     code: () => /!code/,
   },
   error: {
-    timeOut: () => '`Request is long`',
+    timeOut: () => 'Request is long 😤',
     handleType: (error) => (
-      '1'
+      '`Oops! Error 🤔`'
     ),
     getResult: (rs) => `\`${JSON.stringify(rs)}\``,
   },
