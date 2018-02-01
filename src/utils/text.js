@@ -5,9 +5,9 @@ module.exports = {
   },
   error: {
     timeOut: () => 'Request is long 😤',
-    handleType: (error) => (
+    handleType: (_) => (
       '`Oops! Error 🤔`'
     ),
-    getResult: (rs) => `\`${JSON.stringify(rs)}\``,
   },
+  getResult: (rs) => `\`${JSON.stringify(rs)}\``.replace('\\n', ''),
 }
