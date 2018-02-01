@@ -4,9 +4,7 @@ const { commands, error: errorNotify } = require('../../utils/text')
 const { createSandbox } = require('../../sandbox')
 
 
-async function handleCode({
-  message, replyWithMarkdown,
-}) {
+async function handleCode({ message, replyWithMarkdown }) {
   debug('run execute code')
 
   try {
@@ -14,7 +12,7 @@ async function handleCode({
     const rs = await createSandbox(codeStr)
 
     replyWithMarkdown(
-      errorNotify.getResult(rs),
+      errorNotify.getResult(rs).replace(/\\n$/, ''),
       Extra.inReplyTo(message.message_id),
     )
   }
