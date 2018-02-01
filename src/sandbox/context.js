@@ -1,4 +1,4 @@
 module.exports = {
-  console,
+  log: console.log,
   setTimeout,
 }
