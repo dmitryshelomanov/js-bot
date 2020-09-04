@@ -24,7 +24,7 @@
     "fs-extra": "^5.0.0",
     "telegraf": "^3.17.5",
     "telegraf-logger": "^2.0.2",
-    "tree-kill": "^1.2.0",
+    "tree-kill": "^1.2.2",
     "vm2": "^3.5.2"
   },
   "devDependencies": {
